@@ -2,10 +2,8 @@ package com.avanesov.vote.web;
 
 import com.avanesov.vote.app.domain.Vote;
 import com.avanesov.vote.app.domain.VoteStats;
-import com.avanesov.vote.app.domain.VoteValue;
-import com.avanesov.vote.web.repository.VoteRepository;
+import com.avanesov.vote.app.repository.VoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 
 @Service

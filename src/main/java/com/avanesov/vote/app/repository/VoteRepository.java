@@ -1,4 +1,4 @@
-package com.avanesov.vote.web.repository;
+package com.avanesov.vote.app.repository;
 
 import com.avanesov.vote.app.domain.Vote;
 import com.avanesov.vote.app.domain.VoteStats;
