@@ -1,6 +1,7 @@
 package com.avanesov.vote.web;
 
 import com.avanesov.vote.app.domain.Vote;
+import com.avanesov.vote.app.domain.VoteStats;
 import com.avanesov.vote.app.domain.VoteValue;
 import lombok.Builder;
 import lombok.Getter;
@@ -35,8 +36,11 @@ public class VoteApi {
 
     @GetMapping("/votes/stats")
     public GetVoteStatsResponce getStats() {
+        VoteStats voteStats = service.getStats();
         return GetVoteStatsResponce
                 .builder()
+                .totalY(voteStats.getTotalY())
+                .totalN(voteStats.getTotalN())
                 .build();
     }
 
@@ -61,10 +65,8 @@ class SaveVoteResponse {
 @Getter
 @Builder
 class GetVoteStatsResponce {
-    @Builder.Default
-    private long totalY = 0;
-    @Builder.Default
-    private long totalN = 0;
+    private final long totalY;
+    private final long totalN;
 
 }
 
