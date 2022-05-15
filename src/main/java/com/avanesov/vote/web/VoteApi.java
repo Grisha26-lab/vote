@@ -36,6 +36,7 @@ public class VoteApi {
 
     @GetMapping("/votes/stats")
     public GetVoteStatsResponce getStats() {
+
         VoteStats voteStats = service.getStats();
         return GetVoteStatsResponce
                 .builder()

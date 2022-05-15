@@ -1,7 +1,6 @@
 package com.avanesov.vote.app.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.Check;
 import org.hibernate.annotations.Type;
 
@@ -12,6 +11,9 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name = "votes")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Check(constraints = "value in ('Y','N')")
 public class Vote {
     @Id
