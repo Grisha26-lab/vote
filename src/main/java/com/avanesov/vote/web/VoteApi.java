@@ -1,7 +1,7 @@
 package com.avanesov.vote.web;
 
 import com.avanesov.vote.app.domain.Vote;
-import com.avanesov.vote.app.domain.VoteEnum;
+import com.avanesov.vote.app.domain.VoteValue;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class VoteApi {
 
         Vote vote = new Vote();
         vote.setUserId(request.getUserId());
-        vote.setIsAnswer(request.getVoteEnum());
+        vote.setValue(request.getVoteValue());
          boolean isAnswer = service.save(vote);
          SaveVoteResponse saveVoteResponse = new SaveVoteResponse();
          saveVoteResponse.setSaved(isAnswer);
@@ -35,7 +35,7 @@ public class VoteApi {
 @Setter
 class SaveVoteRequest{
     private UUID userId;
-    private VoteEnum voteEnum;
+    private VoteValue voteValue;
 
 }
 @Getter
