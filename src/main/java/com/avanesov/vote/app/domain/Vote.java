@@ -2,20 +2,23 @@ package com.avanesov.vote.app.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Check;
+import org.hibernate.annotations.Type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "votes")
+@Check(constraints = "value in ('Y','N')")
 public class Vote {
     @Id
+    @Type(type = "uuid-char")
+    @Column(length = 36)
     private UUID userId;
-    @Column(updatable = false)
-    private VoteEnum isAnswer;
+    @Column( length = 1,updatable = false)
+    @Enumerated(EnumType.STRING)
+    private VoteValue value;
 }
